@@ -204,7 +204,6 @@ sqlparse==0.4.4
 stack-data==0.6.2
 statsmodels==0.14.1
 sympy==1.12
-systemd-python==234
 tbb==2021.10.0
 tenacity==8.2.3
 tensorboard==2.15.1
