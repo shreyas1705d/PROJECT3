@@ -1,0 +1,66 @@
+<!-- main/templates/feedback.html -->
+
+{% extends "base.html" %}
+{% block content %}
+<section class="feedback">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2>Customer Feedback Form</h2>
+        <form method="post" action="{% url 'submit_feedback' %}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label>Service Quality:</label><br>
+            {% for value, label in form.fields.service_quality.choices %}
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="service_quality" id="service_quality_{{ value }}" value="{{ value }}">
+                <label class="form-check-label" for="service_quality_{{ value }}">{{ label }}</label>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="form-group">
+            <label>Product Quality:</label><br>
+            {% for value, label in form.fields.product_quality.choices %}
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="product_quality" id="product_quality_{{ value }}" value="{{ value }}">
+                <label class="form-check-label" for="product_quality_{{ value }}">{{ label }}</label>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="form-group">
+            <label>Delivery Speed:</label><br>
+            {% for value, label in form.fields.delivery_speed.choices %}
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="delivery_speed" id="delivery_speed_{{ value }}" value="{{ value }}">
+                <label class="form-check-label" for="delivery_speed_{{ value }}">{{ label }}</label>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="form-group">
+            <label>Overall Experience:</label><br>
+            {% for value, label in form.fields.overall_experience.choices %}
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="overall_experience" id="overall_experience_{{ value }}" value="{{ value }}">
+                <label class="form-check-label" for="overall_experience_{{ value }}">{{ label }}</label>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="form-group">
+            <label for="additional_comments">Additional Comments:</label>
+            <textarea class="form-control" id="additional_comments" name="additional_comments" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

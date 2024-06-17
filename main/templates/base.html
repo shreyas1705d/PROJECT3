@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusInfo</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  {% load static %}
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+  <style>
+    body{
+     background: 
+        linear-gradient(rgba(255, 255, 255, 0.819), rgba(255, 255, 255, 0.911)), 
+        url("{% static 'images/watermark.png' %}");
+      background-repeat: repeat;
+      background-attachment: fixed;
+    .form-container {
+        margin-top: 50px;
+    }
+    }
+    .container {
+      background: linear-gradient(to bottom, #9f9f98, #615e77); /* Yellow gradient */
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-wrapper {
+        background: rgba(0, 0, 0, 0.7); /* Black with transparency */
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+    }
+    .form-wrapper h2 {
+        color: white;
+    }
+    .social-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    /* Ensure footer is at the bottom of the page */
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    body {
+        margin-bottom: 100px; /* Margin bottom should be at least the height of the footer */
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+    /* Ensure main content pushes footer down */
+    main {
+        padding-bottom: 60px; /* Adjust according to footer height and padding */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"><img src="{% static 'images/nexus.png' %}" alt="NexusInfo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          {% comment %} Home {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+        
+          {% comment %} About Us {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About Us</a>
+          </li>
+        
+          {% comment %} Products/Services {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'services' %}">Products/Services</a>
+          </li>
+        
+          {% comment %} Contact Us {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+          </li>
+        
+          {% comment %} Feedback {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'submit_feedback' %}">Feedback</a>
+          </li>
+        
+          {% if user.is_authenticated %}
+            {% comment %} Logout if user is authenticated {% endcomment %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+          {% else %}
+            {% comment %} Login and Sign Up if user is not authenticated {% endcomment %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container1">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Follow us on:</p>
+          <a href="https://in.linkedin.com/company/nexus-software-pvt-ltd" class="btn btn-social-icon btn-linkedin social-icon">
+            <span class="fa fa-linkedin"><img src="{% static 'images/linkedin.png' %}" alt="LinkedIn"></span>
+          </a>
+          <a href="https://www.instagram.com/nexusinfo.in/" class="btn btn-social-icon btn-instagram social-icon">
+            <span class="fa fa-instagram"><img src="{% static 'images/instagram.jpeg' %}" alt="Instagram"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript imports -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

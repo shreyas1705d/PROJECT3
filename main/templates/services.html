@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="services">
+  <div class="container">
+    <h1>Our Products and Services</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{% static 'images/ai.jpeg' %}" alt="Product 1" class="img-fluid">
+        <h2>AI</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus sequi, ipsum ipsa, reiciendis voluptate dignissimos quia ab tempora quaerat nostrum odit beatae, quidem molestias facere delectus iure optio sunt molestiae?</p>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'images/ml.jpeg' %}" alt="Product 2" class="img-fluid">
+        <h2>ML</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum earum quam quod nisi ducimus eos alias quas libero nemo dicta. Odio et fuga, nesciunt tempora blanditiis dignissimos vitae minus amet?</p>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'images/ds.jpeg' %}" alt="Product 3" class="img-fluid">
+        <h2>DS</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti non, eveniet voluptatum natus dicta quas in dignissimos, hic eaque quae unde quod minus, animi dolorum neque ducimus cumque odio quia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

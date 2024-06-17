@@ -1,0 +1,73 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum height of the viewport */
+  }
+  
+  main {
+    flex: 1; /* Grow and take up remaining vertical space */
+  }
+  
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+.container {
+    background: 
+        linear-gradient(to right, #d6e0ef, #4c5052),
+        url('{% static "images/nexus_internship_cover.jpeg" %}') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+}
+
+.products img, .services img, .about img {
+    margin-bottom: 20px;
+}
+
+.footer {
+    background: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+.about, .services, .contact {
+    padding: 50px 0;
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.products img {
+    max-width: 100px;
+    align-items: center;
+}
+
+.about img {
+    max-width: 100px;
+}
+
+.social-icon img,
+.social-icon .fa {
+    width: auto;
+    height: auto;
+}
+
+.btn-social-icon {
+    padding: 5px;
+    display: inline-block;
+}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>Welcome to NexusInfo</h1>
+          <p>Your partner in innovative software solutions.</p>
+          <a href="{% url 'services' %}" class="btn btn-primary">Our Products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <br>
+
+<section class="products">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{% static 'images/linkedin.png' %}"  alt="Product 1" class="img-fluid">
+        <h2>Product 1</h2>
+        <p>Description of product 1.</p>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'images/linkedin.png' %}"  alt="Product 2" class="img-fluid">
+        <h2>Product 2</h2>
+        <p>Description of product 2.</p>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'images/linkedin.png' %}"  alt="Product 3" class="img-fluid">
+        <h2>Product 3</h2>
+        <p>Description of product 3.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
